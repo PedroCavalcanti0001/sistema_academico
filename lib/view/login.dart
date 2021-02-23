@@ -5,7 +5,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Autenticação")),
+        title: Text("Autenticação"),
       ),
       body: SingleChildScrollView(
         child: Padding(
