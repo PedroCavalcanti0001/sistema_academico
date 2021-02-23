@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/login',
-        routes: {"/login": (ctx) => Login()},
+        routes: {"/login": (ctx) => LoginView(), "/register": (ctx) => RegisterView()},
       ),
     );
   }
