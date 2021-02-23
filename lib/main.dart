@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sistema_academico/controller/access_provider.dart';
+import 'package:sistema_academico/controller/login_provider.dart';
+import 'package:sistema_academico/controller/register_provider.dart';
 import 'package:sistema_academico/view/login.dart';
+import 'package:sistema_academico/view/register.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +20,10 @@ class MyApp extends StatelessWidget {
             create: (ctx) => RegisterProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          buttonColor: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/login',
