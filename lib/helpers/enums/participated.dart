@@ -1,0 +1,1 @@
+enum Participated{YES, NO}
