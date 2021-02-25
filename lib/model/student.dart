@@ -3,7 +3,7 @@ import 'package:sistema_academico/model/person.dart';
 
 class Student extends Person {
   //notas
-  Map<String, int> _grades = Map();
+  Map<String, double> _grades = Map();
 
   /*
   Lista de faltas
@@ -11,16 +11,21 @@ class Student extends Person {
    */
   Map<int, Participated> _attendances = Map();
 
-  Student(int id, String name, String lastName, String cpf, String age, String userName) : super(id, name, lastName, cpf, age, userName);
+  Student(int id, String name, String lastName, String cpf, String age,
+      String userName)
+      : super(id, name, lastName, cpf, age, userName);
 
-  Map<String, int> get grades => _grades;
+/*
+  Lista de notas
+  *A chave é o nome da materia e o valor é a nota*
+ */
+  Map<String, double> get grades => _grades;
 
-  set grades(Map<String, int> value) {
+  set grades(Map<String, double> value) {
     _grades = value;
   }
 
-  void addGrade(String subject, int grade) {
+  void addGrade(String subject, double grade) {
     _grades[subject] = grade;
   }
-
 }
