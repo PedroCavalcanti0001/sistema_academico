@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
+import 'package:provider/provider.dart';
+import 'package:sistema_academico/controller/register_provider.dart';
 
 class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final registerProvider =
+        Provider.of<RegisterProvider>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Registrar-se"),
@@ -77,56 +83,82 @@ class RegisterView extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: Colors.black,
-                    ),
-                    prefixText: ' ',
-                    labelText: "CPF",
-                    focusColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
-                  ),
+                child: FlutterToggleTab(
+                  width: 50,
+                  borderRadius: 15,
+                  initialIndex: 0,
+                  selectedTextStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
+                  unSelectedTextStyle: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400),
+                  labels: ["Professor", "Aluno"],
+                  icons: [Icons.person, Icons.pregnant_woman],
+                  selectedLabelIndex: (index) {
+                    print("Selected Index $index");
+                  },
                 ),
               ),
               SizedBox(
                 height: 15,
               ),
-              Container(
-                width: double.infinity,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: Colors.black,
+              Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.person,
+                          color: Colors.black,
+                        ),
+                        prefixText: ' ',
+                        labelText: "Senha",
+                        focusColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                      ),
                     ),
-                    prefixText: ' ',
-                    labelText: "Senha",
-                    focusColor: Colors.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        borderSide: BorderSide(color: Colors.black)),
                   ),
-                ),
+                  Flexible(
+                    flex: 1,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.person,
+                          color: Colors.black,
+                        ),
+                        prefixText: ' ',
+                        labelText: "CPF",
+                        focusColor: Colors.white,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderSide: BorderSide(color: Colors.black)),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 15,
               ),
+
               Row(
                 children: [
                   Flexible(
